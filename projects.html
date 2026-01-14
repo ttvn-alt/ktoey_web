@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Teoy Worawich</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        :root { --primary: #0f172a; --secondary: #1e293b; --accent: #d97706; --light: #f8fafc; --white: #ffffff; --text-main: #334155; --nav-height: 80px; }
+        * { box-sizing: border-box; }
+        
+        /* Font Setting */
+        body { font-family: 'Sarabun', sans-serif; margin: 0; background: var(--light); padding-top: var(--nav-height); color: var(--text-main); }
+        h1, h2, h3, h4, .nav-link, .logo, .lang-toggle, .page-title, .tag { font-family: 'Kanit', sans-serif; }
+        
+        a { text-decoration: none; }
+        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .logo { font-size: 1.6rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 5px; } .logo span { color: var(--accent); }
+        .nav-menu { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; align-items: center; }
+        .nav-link { color: var(--secondary); font-weight: 500; position: relative; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--accent); }
+        .nav-link.active::after { content: ''; position: absolute; width: 100%; height: 2px; bottom: -5px; left: 0; background: var(--accent); }
+        .lang-toggle { display: flex; align-items: center; background: #e2e8f0; border-radius: 30px; padding: 4px; cursor: pointer; position: relative; width: 80px; height: 36px; }
+        .lang-toggle span { width: 50%; text-align: center; font-size: 0.8rem; font-weight: 600; z-index: 2; user-select: none; }
+        .lang-toggle::before { content: ''; position: absolute; top: 4px; left: 4px; width: 36px; height: 28px; background: var(--primary); border-radius: 20px; transition: transform 0.3s; z-index: 1; }
+        .lang-toggle.th-active::before { transform: translateX(36px); }
+        .lang-toggle .active-text { color: #fff; } .lang-toggle .inactive-text { color: #64748b; }
+        .mobile-toggle { display: none; font-size: 2rem; cursor: pointer; color: var(--primary); }
+        .page-header { background: linear-gradient(45deg, #0f172a, #1e293b); color: white; padding: 60px 20px; text-align: center; }
+        .page-title { font-size: 2.5rem; margin: 0; }
+        
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .project-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-5px); }
+        .project-img { width: 100%; height: 250px; object-fit: cover; }
+        .project-content { padding: 25px; }
+        .tag { background: #e2e8f0; color: var(--primary); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 10px; }
+        .project-content h3 { margin: 0 0 10px; color: var(--primary); }
+        footer { background: var(--primary); color: #cbd5e1; text-align: center; padding: 30px; margin-top: 50px; }
+        @media (max-width: 768px) { .mobile-toggle { display: block; } .nav-menu { position: fixed; top: var(--nav-height); left: 0; width: 100%; background: white; flex-direction: column; padding: 20px 0; transform: translateY(-150%); transition: transform 0.3s; z-index: 999; box-shadow: 0 10px 10px rgba(0,0,0,0.05); } .nav-menu.active { transform: translateY(0); } .nav-link { display: block; padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid #f1f5f9; } .lang-wrapper { margin-top: 15px; } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo"><i class="ph ph-ruler-pen"></i> Teoy<span>Worawich</span></a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="services.html" class="nav-link" data-key="menu_services">Services</a></li>
+            <li><a href="projects.html" class="nav-link active" data-key="menu_portfolio">Projects</a></li>
+            <li><a href="contact.html" class="nav-link" data-key="menu_contact">Contact</a></li>
+            <li class="lang-wrapper"><div class="lang-toggle" onclick="toggleLanguage()"><span class="active-text">EN</span><span class="inactive-text">TH</span></div></li>
+        </ul>
+        <div class="mobile-toggle" onclick="toggleMobileMenu()"><i class="ph ph-list"></i></div>
+    </header>
+
+    <div class="page-header"><h1 class="page-title" data-key="section_portfolio">Featured Projects</h1></div>
+
+    <div class="container">
+        <div class="grid-container">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1600596542815-2a4d9fdd4070?q=80&w=600" class="project-img">
+                <div class="project-content"><span class="tag">Residential</span><h3 data-key="proj_1_title">Modern 2-Story House</h3><p data-key="proj_1_desc">Bangna, Bangkok</p></div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=600" class="project-img">
+                <div class="project-content"><span class="tag">Interior</span><h3 data-key="proj_2_title">Minimalist Cafe</h3><p data-key="proj_2_desc">Thong Lo, Bangkok</p></div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=600" class="project-img">
+                <div class="project-content"><span class="tag">Luxury</span><h3 data-key="proj_3_title">Private Pool Villa</h3><p data-key="proj_3_desc">Khao Yai, Nakhon Ratchasima</p></div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600" class="project-img">
+                <div class="project-content"><span class="tag">Commercial</span><h3 data-key="proj_4_title">Warehouse Design</h3><p data-key="proj_4_desc">Samut Prakan</p></div>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>&copy; 2024 Teoy Worawich. All Rights Reserved.</p></footer>
+
+    <script>
+        const langData = {
+            en: {
+                menu_services: "Services", menu_portfolio: "Projects", menu_contact: "Contact", section_portfolio: "Featured Projects",
+                proj_1_title: "Modern 2-Story House", proj_1_desc: "Bangna, Bangkok",
+                proj_2_title: "Minimalist Cafe", proj_2_desc: "Thong Lo, Bangkok",
+                proj_3_title: "Private Pool Villa", proj_3_desc: "Khao Yai, Nakhon Ratchasima",
+                proj_4_title: "Warehouse Design", proj_4_desc: "Samut Prakan"
+            },
+            th: {
+                menu_services: "บริการ", menu_portfolio: "ผลงาน", menu_contact: "ติดต่อเรา", section_portfolio: "ผลงานเด่น",
+                proj_1_title: "บ้านเดี่ยว 2 ชั้น สไตล์โมเดิร์น", proj_1_desc: "ย่านบางนา กรุงเทพฯ",
+                proj_2_title: "รีโนเวทคาเฟ่มินิมอล", proj_2_desc: "ย่านทองหล่อ กรุงเทพฯ",
+                proj_3_title: "พูลวิลล่าส่วนตัว", proj_3_desc: "เขาใหญ่ นครราชสีมา",
+                proj_4_title: "ออกแบบโกดัง", proj_4_desc: "สมุทรปราการ"
+            }
+        };
+        let currentLang = localStorage.getItem('site_lang') || 'en';
+        document.addEventListener('DOMContentLoaded', () => { updateLanguageUI(currentLang); });
+        function toggleLanguage() { currentLang = currentLang === 'en' ? 'th' : 'en'; localStorage.setItem('site_lang', currentLang); updateLanguageUI(currentLang); }
+        function updateLanguageUI(lang) {
+            const toggleBtn = document.querySelector('.lang-toggle'); if(toggleBtn) { const spans = toggleBtn.querySelectorAll('span'); if (lang === 'th') { toggleBtn.classList.add('th-active'); spans[0].className = 'inactive-text'; spans[1].className = 'active-text'; } else { toggleBtn.classList.remove('th-active'); spans[0].className = 'active-text'; spans[1].className = 'inactive-text'; } }
+            document.querySelectorAll('[data-key]').forEach(el => { const key = el.getAttribute('data-key'); if (langData[lang][key]) el.textContent = langData[lang][key]; });
+        }
+        function toggleMobileMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+    </script>
+</body>
+</html>
