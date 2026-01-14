@@ -3,48 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Teoy Worawich</title>
+    <title>Projects - DE MIND STUDIO</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        :root { --primary: #0f172a; --secondary: #1e293b; --accent: #d97706; --light: #f8fafc; --white: #ffffff; --text-main: #334155; --nav-height: 80px; }
+        :root { --primary: #1a1a1a; --secondary: #4a4a4a; --accent: #b8956c; --light: #f9f9f9; --white: #ffffff; --nav-height: 80px; }
         * { box-sizing: border-box; }
-        
-        /* Font Setting */
-        body { font-family: 'Sarabun', sans-serif; margin: 0; background: var(--light); padding-top: var(--nav-height); color: var(--text-main); }
+        body { font-family: 'Sarabun', sans-serif; margin: 0; background: var(--light); padding-top: var(--nav-height); color: var(--secondary); }
         h1, h2, h3, h4, .nav-link, .logo, .lang-toggle, .page-title, .tag { font-family: 'Kanit', sans-serif; }
-        
         a { text-decoration: none; }
-        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .logo { font-size: 1.6rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 5px; } .logo span { color: var(--accent); }
+        header { background: rgba(255,255,255,0.98); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 10px; letter-spacing: 1px; } 
+        .logo-box { border: 2px solid var(--primary); padding: 0 5px; border-radius: 2px; }
         .nav-menu { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; align-items: center; }
-        .nav-link { color: var(--secondary); font-weight: 500; position: relative; transition: 0.3s; }
+        .nav-link { color: var(--primary); font-weight: 500; position: relative; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
         .nav-link:hover, .nav-link.active { color: var(--accent); }
         .nav-link.active::after { content: ''; position: absolute; width: 100%; height: 2px; bottom: -5px; left: 0; background: var(--accent); }
-        .lang-toggle { display: flex; align-items: center; background: #e2e8f0; border-radius: 30px; padding: 4px; cursor: pointer; position: relative; width: 80px; height: 36px; }
-        .lang-toggle span { width: 50%; text-align: center; font-size: 0.8rem; font-weight: 600; z-index: 2; user-select: none; }
-        .lang-toggle::before { content: ''; position: absolute; top: 4px; left: 4px; width: 36px; height: 28px; background: var(--primary); border-radius: 20px; transition: transform 0.3s; z-index: 1; }
-        .lang-toggle.th-active::before { transform: translateX(36px); }
-        .lang-toggle .active-text { color: #fff; } .lang-toggle .inactive-text { color: #64748b; }
+        .lang-toggle { display: flex; align-items: center; border: 1px solid var(--primary); border-radius: 0; padding: 4px; cursor: pointer; position: relative; width: 70px; height: 32px; }
+        .lang-toggle span { width: 50%; text-align: center; font-size: 0.75rem; font-weight: 600; z-index: 2; user-select: none; }
+        .lang-toggle::before { content: ''; position: absolute; top: 2px; left: 2px; width: 32px; height: 26px; background: var(--primary); transition: transform 0.3s; z-index: 1; }
+        .lang-toggle.th-active::before { transform: translateX(34px); }
+        .lang-toggle .active-text { color: #fff; } .lang-toggle .inactive-text { color: var(--primary); }
         .mobile-toggle { display: none; font-size: 2rem; cursor: pointer; color: var(--primary); }
-        .page-header { background: linear-gradient(45deg, #0f172a, #1e293b); color: white; padding: 60px 20px; text-align: center; }
-        .page-title { font-size: 2.5rem; margin: 0; }
+
+        .page-header { background: #1a1a1a; color: white; padding: 80px 20px; text-align: center; }
+        .page-title { font-size: 2.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
         
         .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .project-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .project-card:hover { transform: translateY(-5px); }
-        .project-img { width: 100%; height: 250px; object-fit: cover; }
-        .project-content { padding: 25px; }
-        .tag { background: #e2e8f0; color: var(--primary); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 10px; }
-        .project-content h3 { margin: 0 0 10px; color: var(--primary); }
-        footer { background: var(--primary); color: #cbd5e1; text-align: center; padding: 30px; margin-top: 50px; }
-        @media (max-width: 768px) { .mobile-toggle { display: block; } .nav-menu { position: fixed; top: var(--nav-height); left: 0; width: 100%; background: white; flex-direction: column; padding: 20px 0; transform: translateY(-150%); transition: transform 0.3s; z-index: 999; box-shadow: 0 10px 10px rgba(0,0,0,0.05); } .nav-menu.active { transform: translateY(0); } .nav-link { display: block; padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid #f1f5f9; } .lang-wrapper { margin-top: 15px; } }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .project-card { background: var(--white); border: 1px solid #eee; overflow: hidden; transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .project-img { width: 100%; height: 280px; object-fit: cover; filter: grayscale(10%); transition: 0.3s; }
+        .project-card:hover .project-img { filter: grayscale(0%); }
+        .project-content { padding: 30px; text-align: center; }
+        .tag { background: #f0f0f0; color: var(--secondary); padding: 5px 12px; font-size: 0.8rem; font-weight: 500; display: inline-block; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+        .project-content h3 { margin: 0 0 10px; color: var(--primary); font-size: 1.3rem; }
+        
+        footer { background: var(--primary); color: #888; text-align: center; padding: 40px; margin-top: 60px; }
+        @media (max-width: 768px) { .mobile-toggle { display: block; } .nav-menu { position: fixed; top: var(--nav-height); left: 0; width: 100%; background: white; flex-direction: column; padding: 20px 0; transform: translateY(-150%); transition: transform 0.3s; z-index: 999; box-shadow: 0 10px 10px rgba(0,0,0,0.05); } .nav-menu.active { transform: translateY(0); } }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo"><i class="ph ph-ruler-pen"></i> Teoy<span>Worawich</span></a>
+        <a href="index.html" class="logo"><span class="logo-box">DE</span> MIND STUDIO</a>
         <ul class="nav-menu" id="navMenu">
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="services.html" class="nav-link" data-key="menu_services">Services</a></li>
@@ -60,41 +61,41 @@
     <div class="container">
         <div class="grid-container">
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1600596542815-2a4d9fdd4070?q=80&w=600" class="project-img">
-                <div class="project-content"><span class="tag">Residential</span><h3 data-key="proj_1_title">Modern 2-Story House</h3><p data-key="proj_1_desc">Bangna, Bangkok</p></div>
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600" class="project-img">
+                <div class="project-content"><span class="tag">Residential</span><h3 data-key="proj_1_title">Modern 2-Story House</h3><p data-key="proj_1_desc">Bangkok, 2025</p></div>
             </div>
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=600" class="project-img">
-                <div class="project-content"><span class="tag">Interior</span><h3 data-key="proj_2_title">Minimalist Cafe</h3><p data-key="proj_2_desc">Thong Lo, Bangkok</p></div>
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600" class="project-img">
+                <div class="project-content"><span class="tag">Residential</span><h3 data-key="proj_2_title">Minimalist House</h3><p data-key="proj_2_desc">Udon Thani, 2024</p></div>
             </div>
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?q=80&w=600" class="project-img">
-                <div class="project-content"><span class="tag">Luxury</span><h3 data-key="proj_3_title">Private Pool Villa</h3><p data-key="proj_3_desc">Khao Yai, Nakhon Ratchasima</p></div>
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=600" class="project-img">
+                <div class="project-content"><span class="tag">Luxury</span><h3 data-key="proj_3_title">Private Pool Villa</h3><p data-key="proj_3_desc">Nakhon Ratchasima, 2024</p></div>
             </div>
             <div class="project-card">
                 <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600" class="project-img">
-                <div class="project-content"><span class="tag">Commercial</span><h3 data-key="proj_4_title">Warehouse Design</h3><p data-key="proj_4_desc">Samut Prakan</p></div>
+                <div class="project-content"><span class="tag">Renovation</span><h3 data-key="proj_4_title">Home Extension</h3><p data-key="proj_4_desc">Bangkok, 2025</p></div>
             </div>
         </div>
     </div>
 
-    <footer><p>&copy; 2024 Teoy Worawich. All Rights Reserved.</p></footer>
+    <footer><p>&copy; 2025 DE MIND STUDIO. All Rights Reserved.</p></footer>
 
     <script>
         const langData = {
             en: {
                 menu_services: "Services", menu_portfolio: "Projects", menu_contact: "Contact", section_portfolio: "Featured Projects",
-                proj_1_title: "Modern 2-Story House", proj_1_desc: "Bangna, Bangkok",
-                proj_2_title: "Minimalist Cafe", proj_2_desc: "Thong Lo, Bangkok",
-                proj_3_title: "Private Pool Villa", proj_3_desc: "Khao Yai, Nakhon Ratchasima",
-                proj_4_title: "Warehouse Design", proj_4_desc: "Samut Prakan"
+                proj_1_title: "Modern 2-Story House", proj_1_desc: "Bangkok, 2025",
+                proj_2_title: "Minimalist House", proj_2_desc: "Udon Thani, 2024",
+                proj_3_title: "Private Pool Villa", proj_3_desc: "Nakhon Ratchasima, 2024",
+                proj_4_title: "Home Extension", proj_4_desc: "Bangkok, 2025"
             },
             th: {
                 menu_services: "บริการ", menu_portfolio: "ผลงาน", menu_contact: "ติดต่อเรา", section_portfolio: "ผลงานเด่น",
-                proj_1_title: "บ้านเดี่ยว 2 ชั้น สไตล์โมเดิร์น", proj_1_desc: "ย่านบางนา กรุงเทพฯ",
-                proj_2_title: "รีโนเวทคาเฟ่มินิมอล", proj_2_desc: "ย่านทองหล่อ กรุงเทพฯ",
-                proj_3_title: "พูลวิลล่าส่วนตัว", proj_3_desc: "เขาใหญ่ นครราชสีมา",
-                proj_4_title: "ออกแบบโกดัง", proj_4_desc: "สมุทรปราการ"
+                proj_1_title: "บ้านเดี่ยว 2 ชั้น", proj_1_desc: "กรุงเทพฯ, 2568",
+                proj_2_title: "บ้านสไตล์มินิมอล", proj_2_desc: "อุดรธานี, 2567",
+                proj_3_title: "พูลวิลล่าส่วนตัว", proj_3_desc: "นครราชสีมา, 2567",
+                proj_4_title: "งานต่อเติมบ้าน", proj_4_desc: "กรุงเทพฯ, 2568"
             }
         };
         let currentLang = localStorage.getItem('site_lang') || 'en';
