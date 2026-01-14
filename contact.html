@@ -3,45 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Teoy Worawich</title>
+    <title>Contact - DE MIND STUDIO</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        :root { --primary: #0f172a; --secondary: #1e293b; --accent: #d97706; --light: #f8fafc; --white: #ffffff; --text-main: #334155; --nav-height: 80px; }
+        :root { --primary: #1a1a1a; --secondary: #4a4a4a; --accent: #b8956c; --light: #f9f9f9; --white: #ffffff; --nav-height: 80px; }
         * { box-sizing: border-box; }
-
-        /* Font Setting */
-        body { font-family: 'Sarabun', sans-serif; margin: 0; background: var(--light); padding-top: var(--nav-height); color: var(--text-main); }
+        body { font-family: 'Sarabun', sans-serif; margin: 0; background: var(--light); padding-top: var(--nav-height); color: var(--secondary); }
         h1, h2, h3, h4, .nav-link, .logo, .lang-toggle, .page-title, .contact-text a { font-family: 'Kanit', sans-serif; }
-        
         a { text-decoration: none; }
-        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .logo { font-size: 1.6rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 5px; } .logo span { color: var(--accent); }
+        header { background: rgba(255,255,255,0.98); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 10px; letter-spacing: 1px; } 
+        .logo-box { border: 2px solid var(--primary); padding: 0 5px; border-radius: 2px; }
         .nav-menu { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; align-items: center; }
-        .nav-link { color: var(--secondary); font-weight: 500; position: relative; transition: 0.3s; }
+        .nav-link { color: var(--primary); font-weight: 500; position: relative; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
         .nav-link:hover, .nav-link.active { color: var(--accent); }
         .nav-link.active::after { content: ''; position: absolute; width: 100%; height: 2px; bottom: -5px; left: 0; background: var(--accent); }
-        .lang-toggle { display: flex; align-items: center; background: #e2e8f0; border-radius: 30px; padding: 4px; cursor: pointer; position: relative; width: 80px; height: 36px; }
-        .lang-toggle span { width: 50%; text-align: center; font-size: 0.8rem; font-weight: 600; z-index: 2; user-select: none; }
-        .lang-toggle::before { content: ''; position: absolute; top: 4px; left: 4px; width: 36px; height: 28px; background: var(--primary); border-radius: 20px; transition: transform 0.3s; z-index: 1; }
-        .lang-toggle.th-active::before { transform: translateX(36px); }
-        .lang-toggle .active-text { color: #fff; } .lang-toggle .inactive-text { color: #64748b; }
+        .lang-toggle { display: flex; align-items: center; border: 1px solid var(--primary); border-radius: 0; padding: 4px; cursor: pointer; position: relative; width: 70px; height: 32px; }
+        .lang-toggle span { width: 50%; text-align: center; font-size: 0.75rem; font-weight: 600; z-index: 2; user-select: none; }
+        .lang-toggle::before { content: ''; position: absolute; top: 2px; left: 2px; width: 32px; height: 26px; background: var(--primary); transition: transform 0.3s; z-index: 1; }
+        .lang-toggle.th-active::before { transform: translateX(34px); }
+        .lang-toggle .active-text { color: #fff; } .lang-toggle .inactive-text { color: var(--primary); }
         .mobile-toggle { display: none; font-size: 2rem; cursor: pointer; color: var(--primary); }
-        .page-header { background: linear-gradient(45deg, #0f172a, #1e293b); color: white; padding: 60px 20px; text-align: center; }
-        .page-title { font-size: 2.5rem; margin: 0; }
-        .container { max-width: 700px; margin: 60px auto; padding: 0 20px; }
-        .contact-box { background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); text-align: center; }
-        .contact-row { display: flex; align-items: center; gap: 20px; padding: 15px; border-bottom: 1px solid #eee; text-align: left; }
+
+        .page-header { background: #1a1a1a; color: white; padding: 80px 20px; text-align: center; }
+        .page-title { font-size: 2.5rem; margin: 0; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .container { max-width: 800px; margin: 60px auto; padding: 0 20px; }
+        .contact-box { background: white; padding: 60px; border: 1px solid #eee; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .contact-row { display: flex; align-items: center; gap: 20px; padding: 20px; border-bottom: 1px solid #f5f5f5; text-align: left; }
         .contact-row:last-child { border-bottom: none; }
-        .contact-icon { font-size: 1.5rem; color: var(--accent); min-width: 30px; }
+        .contact-icon { font-size: 1.8rem; color: var(--accent); min-width: 40px; }
         .contact-text a { color: var(--primary); font-weight: 500; font-size: 1.1rem; }
-        footer { background: var(--primary); color: #cbd5e1; text-align: center; padding: 30px; margin-top: 50px; }
-        @media (max-width: 768px) { .mobile-toggle { display: block; } .nav-menu { position: fixed; top: var(--nav-height); left: 0; width: 100%; background: white; flex-direction: column; padding: 20px 0; transform: translateY(-150%); transition: transform 0.3s; z-index: 999; box-shadow: 0 10px 10px rgba(0,0,0,0.05); } .nav-menu.active { transform: translateY(0); } .nav-link { display: block; padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid #f1f5f9; } .lang-wrapper { margin-top: 15px; } }
+        .contact-text div { font-size: 0.85rem; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+
+        footer { background: var(--primary); color: #888; text-align: center; padding: 40px; margin-top: 60px; }
+        @media (max-width: 768px) { .mobile-toggle { display: block; } .nav-menu { position: fixed; top: var(--nav-height); left: 0; width: 100%; background: white; flex-direction: column; padding: 20px 0; transform: translateY(-150%); transition: transform 0.3s; z-index: 999; box-shadow: 0 10px 10px rgba(0,0,0,0.05); } .nav-menu.active { transform: translateY(0); } }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo"><i class="ph ph-ruler-pen"></i> Teoy<span>Worawich</span></a>
+        <a href="index.html" class="logo"><span class="logo-box">DE</span> MIND STUDIO</a>
         <ul class="nav-menu" id="navMenu">
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="services.html" class="nav-link" data-key="menu_services">Services</a></li>
@@ -56,32 +58,52 @@
 
     <div class="container">
         <div class="contact-box">
-            <h2 data-key="contact_intro">Get in Touch</h2>
-            <p style="color:#64748b; margin-bottom: 30px;" data-key="contact_desc">We are available for consultation. Feel free to contact us.</p>
+            <h2 data-key="contact_intro" style="color:var(--primary); margin-bottom:40px; font-family:'Kanit'">GET IN TOUCH</h2>
+            
             <div class="contact-row">
-                <i class="ph ph-facebook-logo contact-icon"></i>
-                <div class="contact-text"><div style="font-size:0.8rem; color:#999;">Facebook</div><a href="https://www.facebook.com/teoyworawich/" target="_blank">Teoy Worawich</a></div>
-            </div>
-            <div class="contact-row">
-                <i class="ph ph-envelope-simple contact-icon"></i>
-                <div class="contact-text"><div style="font-size:0.8rem; color:#999;">Email</div><a href="mailto:worawichpassa@gmail.com">worawichpassa@gmail.com</a></div>
+                <i class="ph ph-map-pin contact-icon"></i>
+                <div class="contact-text">
+                    <div data-key="label_address">Address</div>
+                    <span data-key="contact_address">286 Moo 11, Tambon Thap Kung, Amphoe Nong Saeng, Udon Thani</span>
+                </div>
             </div>
             <div class="contact-row">
                 <i class="ph ph-phone contact-icon"></i>
-                <div class="contact-text"><div style="font-size:0.8rem; color:#999;">Phone</div><a href="tel:0948721952">094 872 1952</a></div>
+                <div class="contact-text">
+                    <div data-key="label_phone">Phone</div>
+                    <a href="tel:0811466603">081-146-6603</a>
+                </div>
+            </div>
+            <div class="contact-row">
+                <i class="ph ph-envelope-simple contact-icon"></i>
+                <div class="contact-text">
+                    <div data-key="label_email">Email</div>
+                    <a href="mailto:worawichpassa@gmail.com">worawichpassa@gmail.com</a>
+                </div>
+            </div>
+            <div class="contact-row">
+                <i class="ph ph-facebook-logo contact-icon"></i>
+                <div class="contact-text">
+                    <div data-key="label_social">Social</div>
+                    <a href="#" target="_blank">DE MIND STUDIO</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer><p>&copy; 2024 Teoy Worawich. All Rights Reserved.</p></footer>
+    <footer><p>&copy; 2025 DE MIND STUDIO. All Rights Reserved.</p></footer>
 
     <script>
         const langData = {
             en: {
-                menu_services: "Services", menu_portfolio: "Projects", menu_contact: "Contact", section_contact: "Contact Us", contact_intro: "Get in Touch", contact_desc: "We are available for consultation. Feel free to contact us."
+                menu_services: "Services", menu_portfolio: "Projects", menu_contact: "Contact", section_contact: "Contact Us", 
+                contact_intro: "GET IN TOUCH", label_address: "ADDRESS", label_phone: "PHONE", label_email: "EMAIL", label_social: "SOCIAL",
+                contact_address: "286 Moo 11, Tambon Thap Kung, Amphoe Nong Saeng, Udon Thani"
             },
             th: {
-                menu_services: "บริการ", menu_portfolio: "ผลงาน", menu_contact: "ติดต่อเรา", section_contact: "ติดต่อเรา", contact_intro: "ช่องทางติดต่อ", contact_desc: "เรายินดีให้คำปรึกษา สามารถติดต่อเราได้ตามช่องทางด้านล่างนี้"
+                menu_services: "บริการ", menu_portfolio: "ผลงาน", menu_contact: "ติดต่อเรา", section_contact: "ติดต่อเรา", 
+                contact_intro: "ช่องทางติดต่อ", label_address: "ที่อยู่", label_phone: "เบอร์โทรศัพท์", label_email: "อีเมล", label_social: "โซเชียลมีเดีย",
+                contact_address: "286 หมู่ 11 ต.ทับกุง อ.หนองแสง จ.อุดรธานี"
             }
         };
         let currentLang = localStorage.getItem('site_lang') || 'en';
