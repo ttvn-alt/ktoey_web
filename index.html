@@ -3,81 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Teoy Worawich</title>
+    <title>DE MIND STUDIO - Design & Build</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        :root { --primary: #0f172a; --secondary: #1e293b; --accent: #d97706; --accent-hover: #b45309; --light: #f8fafc; --white: #ffffff; --text-main: #334155; --nav-height: 80px; }
+        /* --- CI: DE MIND STUDIO --- */
+        :root {
+            --primary: #1a1a1a;       /* Black/Dark Grey (Logo Text) */
+            --secondary: #4a4a4a;     /* Medium Grey */
+            --accent: #b8956c;        /* Gold/Earth Tone (From Portfolio images) */
+            --accent-hover: #9e7f56;
+            --light: #f9f9f9;
+            --white: #ffffff;
+            --nav-height: 80px;
+        }
         * { box-sizing: border-box; }
+        body { font-family: 'Sarabun', sans-serif; margin: 0; color: var(--secondary); background: var(--white); padding-top: var(--nav-height); overflow-x: hidden; }
         
-        /* Font Settings */
-        body { font-family: 'Sarabun', sans-serif; margin: 0; color: var(--text-main); background: var(--light); padding-top: var(--nav-height); overflow-x: hidden; }
-        h1, h2, h3, h4, .logo, .nav-link, .btn, .hero-title, .section-title, .service-card h3 { font-family: 'Kanit', sans-serif; }
+        /* Typography */
+        h1, h2, h3, h4, .logo, .nav-link, .btn, .hero-title, .section-title { font-family: 'Kanit', sans-serif; }
         
         a { text-decoration: none; }
 
         /* Header */
-        header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .logo { font-size: 1.6rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 5px; } .logo span { color: var(--accent); }
+        header { background: rgba(255,255,255,0.98); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        
+        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 10px; letter-spacing: 1px; } 
+        /* สร้างโลโก้ให้คล้ายใน PDF */
+        .logo-box { border: 2px solid var(--primary); padding: 0 5px; border-radius: 2px; }
+        
         .nav-menu { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; align-items: center; }
-        .nav-link { color: var(--secondary); font-weight: 500; position: relative; transition: 0.3s; }
+        .nav-link { color: var(--primary); font-weight: 500; position: relative; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
         .nav-link:hover, .nav-link.active { color: var(--accent); }
         .nav-link.active::after { content: ''; position: absolute; width: 100%; height: 2px; bottom: -5px; left: 0; background: var(--accent); }
         
-        /* Lang Switch */
-        .lang-toggle { display: flex; align-items: center; background: #e2e8f0; border-radius: 30px; padding: 4px; cursor: pointer; position: relative; width: 80px; height: 36px; font-family: 'Kanit', sans-serif; }
-        .lang-toggle span { width: 50%; text-align: center; font-size: 0.8rem; font-weight: 600; z-index: 2; user-select: none; }
-        .lang-toggle::before { content: ''; position: absolute; top: 4px; left: 4px; width: 36px; height: 28px; background: var(--primary); border-radius: 20px; transition: transform 0.3s; z-index: 1; }
-        .lang-toggle.th-active::before { transform: translateX(36px); }
-        .lang-toggle .active-text { color: #fff; } .lang-toggle .inactive-text { color: #64748b; }
+        /* Language Toggle */
+        .lang-toggle { display: flex; align-items: center; border: 1px solid var(--primary); border-radius: 0; padding: 4px; cursor: pointer; position: relative; width: 70px; height: 32px; }
+        .lang-toggle span { width: 50%; text-align: center; font-size: 0.75rem; font-weight: 600; z-index: 2; user-select: none; }
+        .lang-toggle::before { content: ''; position: absolute; top: 2px; left: 2px; width: 32px; height: 26px; background: var(--primary); transition: transform 0.3s; z-index: 1; }
+        .lang-toggle.th-active::before { transform: translateX(34px); }
+        .lang-toggle .active-text { color: #fff; } .lang-toggle .inactive-text { color: var(--primary); }
 
-        /* Hero */
-        #hero { height: calc(100vh - var(--nav-height)); background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.5)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1600'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px; }
-        .hero-title { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 600; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .hero-subtitle { font-size: 1.2rem; color: #cbd5e1; margin-bottom: 2rem; }
-        .btn-primary { background: var(--accent); color: white; padding: 15px 40px; border-radius: 50px; font-weight: 600; transition: 0.3s; box-shadow: 0 4px 15px rgba(217,119,6,0.4); display: inline-block; }
-        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
-
-        /* Service Preview */
-        .section-header { text-align: center; padding: 80px 20px 40px; }
-        .section-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
-        .section-desc { color: #64748b; margin-top: 0; }
-        .services-preview { padding: 0 5% 80px; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .service-card { background: var(--white); padding: 40px 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s; border: 1px solid #f1f5f9; cursor: pointer; }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .icon-box { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
-        .service-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; }
-        .service-card p { color: var(--text-main); font-size: 0.95rem; line-height: 1.6; }
-
-        /* Slider */
-        .project-slider-section { background: var(--white); padding: 50px 0 80px; overflow: hidden; }
-        .slider-track-container { width: 100%; overflow: hidden; position: relative; margin-top: 40px; }
-        .slider-track-container::before, .slider-track-container::after { content: ""; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; }
-        .slider-track-container::before { left: 0; background: linear-gradient(to right, white, transparent); }
-        .slider-track-container::after { right: 0; background: linear-gradient(to left, white, transparent); }
-        .slider-track { display: flex; width: calc(300px * 12); animation: scroll 30s linear infinite; }
-        .slide-item { width: 300px; height: 200px; margin: 0 15px; border-radius: 12px; overflow: hidden; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .slide-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .slide-item:hover img { transform: scale(1.1); }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-300px * 6 - 180px)); } }
-
-        footer { background: var(--primary); color: #cbd5e1; text-align: center; padding: 30px; font-size: 0.9rem; }
+        /* Hero Section */
+        #hero { 
+            height: calc(100vh - var(--nav-height)); 
+            /* ใช้รูปบ้าน Luxury จาก Portfolio หน้า 1 เป็น Reference */
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1600596542815-2a4d9fdd4070?q=80&w=1600'); 
+            background-size: cover; background-position: center; 
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px; 
+        }
+        .hero-content { max-width: 800px; }
+        .hero-title { font-size: 4rem; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .hero-subtitle { font-size: 1.5rem; color: #f0f0f0; margin-bottom: 2rem; font-weight: 300; letter-spacing: 5px; }
         
+        .btn-primary { 
+            background: var(--accent); color: white; padding: 12px 40px; 
+            border-radius: 0; /* ปุ่มเหลี่ยมตามสไตล์โมเดิร์น */
+            font-weight: 500; transition: 0.3s; letter-spacing: 1px; text-transform: uppercase;
+            border: 1px solid var(--accent);
+        }
+        .btn-primary:hover { background: transparent; color: var(--white); border-color: var(--white); }
+
+        /* Sections */
+        .section-header { text-align: center; padding: 100px 20px 50px; }
+        .section-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .section-desc { color: var(--secondary); margin-top: 0; font-size: 1.1rem; }
+        
+        /* Service Cards */
+        .services-preview { padding: 0 5% 100px; background: var(--white); }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .service-card { 
+            padding: 40px 30px; text-align: center; transition: all 0.3s; 
+            border: 1px solid #eee; background: #fff; cursor: pointer;
+        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--accent); }
+        .icon-box { font-size: 3rem; color: var(--accent); margin-bottom: 25px; }
+        .service-card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; font-weight: 500; }
+        
+        /* Slider */
+        .project-slider-section { background: var(--light); padding: 50px 0 100px; overflow: hidden; }
+        .slider-track-container { width: 100%; overflow: hidden; position: relative; margin-top: 40px; }
+        .slider-track { display: flex; width: calc(350px * 10); animation: scroll 40s linear infinite; }
+        .slide-item { width: 350px; height: 250px; margin: 0 20px; overflow: hidden; flex-shrink: 0; }
+        .slide-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; filter: grayscale(20%); }
+        .slide-item:hover img { transform: scale(1.1); filter: grayscale(0%); }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-350px * 5 - 200px)); } }
+
+        /* Footer */
+        footer { background: var(--primary); color: #888; text-align: center; padding: 40px; font-size: 0.9rem; }
+        
+        /* Mobile */
         .mobile-toggle { display: none; font-size: 2rem; cursor: pointer; color: var(--primary); }
         @media (max-width: 768px) {
             .mobile-toggle { display: block; }
             .nav-menu { position: fixed; top: var(--nav-height); left: 0; width: 100%; background: white; flex-direction: column; padding: 20px 0; box-shadow: 0 10px 10px rgba(0,0,0,0.05); transform: translateY(-150%); transition: transform 0.3s; z-index: 999; }
             .nav-menu.active { transform: translateY(0); }
-            .nav-link { display: block; padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid #f1f5f9; }
-            .lang-wrapper { margin-top: 15px; }
             .hero-title { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo"><i class="ph ph-ruler-pen"></i> Teoy<span>Worawich</span></a>
+        <a href="index.html" class="logo">
+            <span class="logo-box">DE</span> MIND STUDIO
+        </a>
         <ul class="nav-menu" id="navMenu">
             <li><a href="index.html" class="nav-link active" data-key="menu_home">Home</a></li>
             <li><a href="services.html" class="nav-link" data-key="menu_services">Services</a></li>
@@ -90,8 +119,8 @@
 
     <section id="hero">
         <div class="hero-content">
-            <h1 class="hero-title" data-key="hero_title">Engineering Excellence & Design</h1>
-            <p class="hero-subtitle" data-key="hero_subtitle">Professional standards. Precise calculations. Creative designs.</p>
+            <h1 class="hero-title">DE MIND STUDIO</h1>
+            <p class="hero-subtitle" data-key="hero_tagline">DESIGN & BUILD</p>
             <a href="contact.html" class="btn-primary" data-key="hero_btn">Contact Us</a>
         </div>
     </section>
@@ -99,23 +128,23 @@
     <section class="services-preview">
         <div class="section-header">
             <h2 class="section-title" data-key="section_services">Our Expertise</h2>
-            <p class="section-desc" data-key="section_services_sub">What we can do for you</p>
+            <p class="section-desc" data-key="section_services_sub">Professional Design & Construction Services</p>
         </div>
         <div class="grid-container">
             <div class="service-card" onclick="window.location.href='services.html'">
                 <i class="ph ph-pencil-ruler icon-box"></i>
-                <h3 data-key="service_1_title">Structural Design</h3>
-                <p data-key="service_1_desc">Drafting & Design for Houses, Warehouses, Retaining Walls with Engineer Certification.</p>
+                <h3 data-key="service_1_title">Architectural Design</h3>
+                <p data-key="service_1_desc">House design, structural engineering, and 3D visualization.</p>
             </div>
             <div class="service-card" onclick="window.location.href='services.html'">
-                <i class="ph ph-hard-hat icon-box"></i>
+                <i class="ph ph-briefcase icon-box"></i>
                 <h3 data-key="service_2_title">Construction</h3>
-                <p data-key="service_2_desc">Professional construction and site supervision for buildings and structures.</p>
+                <p data-key="service_2_desc">General contracting for residential and commercial buildings.</p>
             </div>
             <div class="service-card" onclick="window.location.href='services.html'">
-                <i class="ph ph-files icon-box"></i>
+                <i class="ph ph-file-text icon-box"></i>
                 <h3 data-key="service_3_title">Permits & Consultant</h3>
-                <p data-key="service_3_desc">Construction permits, house number application, and BOQ for bank loans.</p>
+                <p data-key="service_3_desc">Construction permits, BOQ, and loan application documents.</p>
             </div>
         </div>
     </section>
@@ -123,50 +152,49 @@
     <section class="project-slider-section">
         <div class="section-header">
             <h2 class="section-title" data-key="section_portfolio">Featured Projects</h2>
-            <p class="section-desc" data-key="section_portfolio_sub">A glimpse of our past work</p>
+            <p class="section-desc" data-key="section_portfolio_sub">A glimpse of our past work (2024-2025)</p>
         </div>
         <div class="slider-track-container">
             <div class="slider-track">
-                <div class="slide-item"><img src="https://images.unsplash.com/photo-1600596542815-2a4d9fdd4070?w=600"></div>
-                <div class="slide-item"><img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600"></div>
-                <div class="slide-item"><img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?w=600"></div>
+                <div class="slide-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600"></div>
                 <div class="slide-item"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600"></div>
                 <div class="slide-item"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600"></div>
+                <div class="slide-item"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600"></div>
+                <div class="slide-item"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600"></div>
+                
                 <div class="slide-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600"></div>
-                <div class="slide-item"><img src="https://images.unsplash.com/photo-1600596542815-2a4d9fdd4070?w=600"></div>
-                <div class="slide-item"><img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600"></div>
-                <div class="slide-item"><img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?w=600"></div>
                 <div class="slide-item"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600"></div>
                 <div class="slide-item"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600"></div>
-                <div class="slide-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600"></div>
+                <div class="slide-item"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600"></div>
+                <div class="slide-item"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600"></div>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="projects.html" class="btn-primary" style="background: transparent; color: var(--accent); border: 2px solid var(--accent);" data-key="view_all_projects">View All Projects</a>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="projects.html" class="btn-primary" style="background: transparent; color: var(--primary); border: 1px solid var(--primary);" data-key="view_all_projects">View All Projects</a>
         </div>
     </section>
 
-    <footer><p>&copy; 2024 Teoy Worawich. All Rights Reserved.</p></footer>
+    <footer><p>&copy; 2025 DE MIND STUDIO. All Rights Reserved.</p></footer>
 
     <script>
         const langData = {
             en: {
                 menu_home: "Home", menu_services: "Services", menu_portfolio: "Projects", menu_contact: "Contact",
-                hero_title: "Engineering Excellence & Design", hero_subtitle: "Professional standards. Precise calculations. Creative designs.", hero_btn: "Contact Us",
-                section_services: "Our Expertise", section_services_sub: "What we can do for you",
-                service_1_title: "Structural Design", service_1_desc: "Drafting & Design for Houses, Warehouses, Retaining Walls with Engineer Certification.",
-                service_2_title: "Construction", service_2_desc: "Professional construction and site supervision for buildings and structures.",
-                service_3_title: "Permits & Consultant", service_3_desc: "Construction permits, house number application, and BOQ for bank loans.",
-                section_portfolio: "Featured Projects", section_portfolio_sub: "A glimpse of our past work", view_all_projects: "View All Projects"
+                hero_tagline: "DESIGN & BUILD", hero_btn: "Contact Us",
+                section_services: "Our Expertise", section_services_sub: "Professional Design & Construction Services",
+                service_1_title: "Architectural Design", service_1_desc: "House design, structural engineering, and 3D visualization.",
+                service_2_title: "Construction", service_2_desc: "General contracting for residential and commercial buildings.",
+                service_3_title: "Permits & Consultant", service_3_desc: "Construction permits, BOQ, and loan application documents.",
+                section_portfolio: "Featured Projects", section_portfolio_sub: "A glimpse of our past work (2024-2025)", view_all_projects: "View All Projects"
             },
             th: {
                 menu_home: "หน้าหลัก", menu_services: "บริการ", menu_portfolio: "ผลงาน", menu_contact: "ติดต่อเรา",
-                hero_title: "บริการวิศวกรรมและออกแบบครบวงจร", hero_subtitle: "มาตรฐานมืออาชีพ คำนวณแม่นยำ ออกแบบสร้างสรรค์", hero_btn: "ติดต่อเรา",
-                section_services: "ความเชี่ยวชาญของเรา", section_services_sub: "สิ่งที่เราช่วยคุณได้",
-                service_1_title: "งานออกแบบโครงสร้าง", service_1_desc: "รับออกแบบ เขียนแบบบ้าน โกดัง กำแพงกันดิน พร้อมรายการคำนวณและเซ็นรับรอง",
-                service_2_title: "รับเหมาก่อสร้าง", service_2_desc: "รับเหมาก่อสร้างอาคาร งานกำแพงกันดิน และควบคุมงานโดยวิศวกร",
-                service_3_title: "ยื่นขออนุญาตและที่ปรึกษา", service_3_desc: "ดำเนินการขอบ้านเลขที่ ยื่นขออนุญาต และทำ BOQ ยื่นกู้ธนาคาร",
-                section_portfolio: "ตัวอย่างผลงาน", section_portfolio_sub: "ภาพบางส่วนจากผลงานที่ผ่านมา", view_all_projects: "ดูผลงานทั้งหมด"
+                hero_tagline: "ออกแบบและก่อสร้างครบวงจร", hero_btn: "ติดต่อเรา",
+                section_services: "บริการของเรา", section_services_sub: "บริการวิชาชีพสถาปัตยกรรมและวิศวกรรม",
+                service_1_title: "งานออกแบบ", service_1_desc: "รับออกแบบ เขียนแบบบ้าน คำนวณโครงสร้าง และภาพ 3D",
+                service_2_title: "รับเหมาก่อสร้าง", service_2_desc: "สร้างบ้าน อาคารโรงงาน อาคารพาณิชย์",
+                service_3_title: "ยื่นขออนุญาตและที่ปรึกษา", service_3_desc: "ยื่นขออนุญาตก่อสร้าง BOQ และเอกสารยื่นกู้ธนาคาร",
+                section_portfolio: "ผลงานเด่น", section_portfolio_sub: "ตัวอย่างผลงานที่ผ่านมา (2567-2568)", view_all_projects: "ดูผลงานทั้งหมด"
             }
         };
 
