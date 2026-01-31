@@ -34,7 +34,8 @@
         .expertise-section { padding: 100px 10%; background: var(--white); text-align: center; }
         .expertise-title { font-size: clamp(2rem, 4vw, 3rem); color: var(--primary); margin-bottom: 15px; text-transform: uppercase; }
         .expertise-divider { width: 80px; height: 4px; background: var(--accent); margin: 0 auto 60px; }
-        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: left; }
+        /* ปรับ grid ให้รองรับ 4 ช่องสวยๆ */
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: left; }
         .exp-item h3 { color: var(--accent); font-size: 1.4rem; margin-bottom: 15px; border-left: 4px solid var(--accent); padding-left: 15px; }
         .exp-item p { color: #555; line-height: 1.8; font-size: 1.05rem; }
 
@@ -103,6 +104,10 @@
                 <h3 data-key="exp_3">ENGINEERING CONSULT</h3>
                 <p data-key="exp_d3">ให้คำปรึกษาและควบคุมหน้างานโดยทีมวิศวกรวิชาชีพ (กว.) เพื่อให้การดำเนินงานเป็นไปตามแผนและถูกต้องตามระเบียบกฎหมาย</p>
             </div>
+            <div class="exp-item">
+                <h3 data-key="exp_4">CONSTRUCTION SERVICE</h3>
+                <p data-key="exp_d4">บริการรับเหมาก่อสร้างครบวงจร ควบคุมคุณภาพโดยวิศวกร ใส่ใจทุกรายละเอียด มั่นใจได้ในความแข็งแรงและมาตรฐานที่เหนือกว่า</p>
+            </div>
         </div>
     </section>
 
@@ -143,7 +148,9 @@
                 about_title: "EXPERTISE IN EVERY DETAIL",
                 exp_1: "STRUCTURAL DESIGN", exp_d1: "Structural calculation based on international standards, supporting limitless architectural styles tailored exactly to your vision.",
                 exp_2: "ARCHITECTURAL PLAN", exp_d2: "Creative functional spaces blending modern aesthetics with natural lighting and ventilation principles.",
-                exp_3: "ENGINEERING CONSULT", exp_d3: "Professional consulting and site supervision by licensed civil engineers (COE Thailand)."
+                exp_3: "ENGINEERING CONSULT", exp_d3: "Professional consulting and site supervision by licensed civil engineers (COE Thailand).",
+                // เพิ่มข้อมูลภาษาอังกฤษ
+                exp_4: "CONSTRUCTION SERVICE", exp_d4: "Full-scale construction services supervised by professional engineers at every step, ensuring structural integrity, quality finishing, and on-time delivery."
             },
             th: {
                 menu_services: "บริการ", menu_portfolio: "ผลงาน", menu_contact: "ติดต่อเรา",
@@ -152,7 +159,9 @@
                 about_title: "เชี่ยวชาญในทุกรายละเอียด",
                 exp_1: "ออกแบบโครงสร้าง", exp_d1: "คำนวณและออกแบบโครงสร้างด้วยมาตรฐานวิศวกรรมสากล รองรับรูปแบบสถาปัตยกรรมที่หลากหลาย สามารถออกแบบได้ทุกสไตล์ตามความต้องการของคุณอย่างไร้ขีดจำกัด",
                 exp_2: "ออกแบบสถาปัตยกรรม", exp_d2: "สร้างสรรค์พื้นที่ใช้สอยให้เกิดประโยชน์สูงสุด ผสมผสานความสวยงามเข้ากับหลักการทางธรรมชาติ",
-                exp_3: "ที่ปรึกษาวิศวกรรม", exp_d3: "ให้คำปรึกษาและควบคุมหน้างานโดยทีมวิศวกรวิชาชีพ (กว.) เพื่อความถูกต้องตามระเบียบกฎหมาย"
+                exp_3: "ที่ปรึกษาวิศวกรรม", exp_d3: "ให้คำปรึกษาและควบคุมหน้างานโดยทีมวิศวกรวิชาชีพ (กว.) เพื่อความถูกต้องตามระเบียบกฎหมาย",
+                // เพิ่มข้อมูลภาษาไทย
+                exp_4: "รับเหมาก่อสร้าง", exp_d4: "บริการรับเหมาก่อสร้างครบวงจร ควบคุมงานโดยทีมวิศวกรทุกขั้นตอน มั่นใจในคุณภาพโครงสร้าง งานสถาปัตยกรรม และส่งมอบงานตรงเวลา"
             }
         };
 
