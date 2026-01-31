@@ -12,49 +12,41 @@
         body { font-family: 'Sarabun', sans-serif; margin: 0; padding-top: var(--nav-height); background: var(--white); color: var(--secondary); }
         h1, h2, h3, .logo, .nav-link, .project-tag, .lang-toggle { font-family: 'Kanit', sans-serif; }
 
-        /* Navigation */
         header { background: var(--white); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .logo { font-size: 1.8rem; font-weight: 600; color: var(--primary); text-decoration: none; }
-        .logo-box { border: 2px solid var(--primary); padding: 0 5px; margin-right: 5px; }
+        
+        /* --- LOGO UPDATE --- */
+        .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .logo-box { border: 2px solid var(--primary); padding: 0 5px; font-size: 1.8rem; font-weight: 600; color: var(--primary); flex-shrink: 0; }
+        .logo-text-group { display: flex; flex-direction: column; justify-content: center; line-height: 1; }
+        .brand-name { font-size: 1.8rem; font-weight: 600; color: var(--primary); white-space: nowrap; }
+        .mobile-tag { display: none; }
+
         .nav-menu { display: flex; gap: 30px; list-style: none; margin: 0; align-items: center; }
         .nav-link { color: var(--primary); text-decoration: none; font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
         .nav-link:hover { color: var(--accent); }
 
-        /* Page Header */
         .page-header { padding: 60px 10% 40px; text-align: center; background: var(--light); }
         .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--primary); letter-spacing: 1px; }
         .page-header p { color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
-        /* Projects Grid */
         .projects-container { padding: 60px 10%; max-width: 1400px; margin: 0 auto; }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
         
-        /* Card & Mini Slider */
         .project-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee; }
         .project-img-container { position: relative; width: 100%; height: 380px; overflow: hidden; background: #222; }
         .project-slides { display: flex; width: 200%; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
         .project-slides img { width: 50%; height: 100%; object-fit: cover; }
 
-        /* Slider Buttons */
-        .slide-btn { 
-            position: absolute; top: 50%; transform: translateY(-50%); 
-            background: rgba(255,255,255,0.9); color: var(--primary); border: none; 
-            width: 45px; height: 45px; cursor: pointer; z-index: 5; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
+        .slide-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); color: var(--primary); border: none; width: 45px; height: 45px; cursor: pointer; z-index: 5; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .slide-btn:hover { background: var(--accent); color: white; }
-        .prev { left: 15px; }
-        .next { right: 15px; }
+        .prev { left: 15px; } .next { right: 15px; }
 
-        /* Project Content */
         .project-content { padding: 30px; }
         .project-tag { color: var(--accent); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 12px; }
         .project-content h3 { margin: 0 0 15px 0; font-size: 1.4rem; color: var(--primary); line-height: 1.4; }
         .project-details { font-size: 0.95rem; line-height: 1.8; color: #555; border-top: 1px solid #f0f0f0; pt: 15px; margin-top: 15px; }
         .project-details strong { color: var(--primary); font-family: 'Kanit'; font-weight: 500; }
 
-        /* Language Toggle */
         .lang-toggle { border: 1px solid var(--primary); padding: 4px; cursor: pointer; display: flex; width: 70px; position: relative; background: #fff; }
         .lang-toggle span { flex: 1; text-align: center; font-size: 10px; font-weight: bold; z-index: 2; color: var(--primary); }
         .toggle-bg { position: absolute; top: 2px; left: 2px; width: 32px; height: calc(100% - 4px); background: var(--primary); transition: 0.3s; z-index: 1; }
@@ -67,13 +59,24 @@
             .projects-grid { grid-template-columns: 1fr; }
             .project-img-container { height: 280px; }
             .page-header h1 { font-size: 2rem; }
+            
+            /* Logo Mobile Fix */
+            .logo-box { font-size: 1.4rem; border-width: 2px; }
+            .brand-name { font-size: 1.3rem; }
+            .mobile-tag { display: block; font-size: 0.6rem; color: var(--accent); letter-spacing: 1px; font-weight: 500; margin-top: 2px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo"><span class="logo-box">DE</span> MIND STUDIO</a>
+        <a href="index.html" class="logo">
+            <span class="logo-box">DE</span>
+            <div class="logo-text-group">
+                <span class="brand-name">MIND STUDIO</span>
+                <span class="mobile-tag">DESIGN & BUILD</span>
+            </div>
+        </a>
         <ul class="nav-menu">
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="services.html" class="nav-link" data-key="menu_services">Services</a></li>
@@ -95,119 +98,64 @@
 
     <main class="projects-container">
         <div class="projects-grid">
-            
             <div class="project-card">
                 <div class="project-img-container">
-                    <div class="project-slides" id="slider1">
-                        <img src="card1_1.jpg" alt="Project 1 Image 1">
-                        <img src="card1_2.jpg" alt="Project 1 Image 2">
-                    </div>
+                    <div class="project-slides" id="slider1"><img src="card1_1.jpg" alt="Project 1 Image 1"><img src="card1_2.jpg" alt="Project 1 Image 2"></div>
                     <button class="slide-btn prev" onclick="moveSlide('slider1', 0)"><i class="ph ph-caret-left"></i></button>
                     <button class="slide-btn next" onclick="moveSlide('slider1', 1)"><i class="ph ph-caret-right"></i></button>
                 </div>
                 <div class="project-content">
                     <span class="project-tag" data-key="tag_1">Architectural Design & Engineering</span>
                     <h3 data-key="p1_title">ออกแบบ เขียนแบบบ้าน 2 ชั้น</h3>
-                    <div class="project-details">
-                        <strong><i class="ph ph-info"></i> <span data-key="label_detail">Detail:</span></strong> <span data-key="p1_detail">3 ห้องนอน 4 ห้องน้ำ</span><br>
-                        <strong><i class="ph ph-map-pin"></i> <span data-key="label_loc">Location:</span></strong> Pak chong, Korat Thailand
-                    </div>
+                    <div class="project-details"><strong><i class="ph ph-info"></i> <span data-key="label_detail">Detail:</span></strong> <span data-key="p1_detail">3 ห้องนอน 4 ห้องน้ำ</span><br><strong><i class="ph ph-map-pin"></i> <span data-key="label_loc">Location:</span></strong> Pak chong, Korat Thailand</div>
                 </div>
             </div>
 
             <div class="project-card">
                 <div class="project-img-container">
-                    <div class="project-slides" id="slider2">
-                        <img src="card2_1.jpg" alt="Project 2 Image 1">
-                        <img src="card2_2.jpg" alt="Project 2 Image 2">
-                    </div>
+                    <div class="project-slides" id="slider2"><img src="card2_1.jpg" alt="Project 2 Image 1"><img src="card2_2.jpg" alt="Project 2 Image 2"></div>
                     <button class="slide-btn prev" onclick="moveSlide('slider2', 0)"><i class="ph ph-caret-left"></i></button>
                     <button class="slide-btn next" onclick="moveSlide('slider2', 1)"><i class="ph ph-caret-right"></i></button>
                 </div>
                 <div class="project-content">
                     <span class="project-tag" data-key="tag_2">Engineering & Documentation</span>
                     <h3 data-key="p2_title">ออกแบบเขียนแบบบ้านพักอาศัย 2 ชั้น</h3>
-                    <div class="project-details">
-                        <strong><i class="ph ph-info"></i> <span data-key="label_detail">Detail:</span></strong> <span data-key="p2_detail">BOQ, รายการคำนวณโครงสร้างพร้อมเซ็นรับรอง</span><br>
-                        <strong><i class="ph ph-map-pin"></i> <span data-key="label_loc">Location:</span></strong> Pattaya, Thailand
-                    </div>
+                    <div class="project-details"><strong><i class="ph ph-info"></i> <span data-key="label_detail">Detail:</span></strong> <span data-key="p2_detail">BOQ, รายการคำนวณโครงสร้างพร้อมเซ็นรับรอง</span><br><strong><i class="ph ph-map-pin"></i> <span data-key="label_loc">Location:</span></strong> Pattaya, Thailand</div>
                 </div>
             </div>
-
         </div>
     </main>
 
     <footer>&copy; 2025 DE MIND STUDIO. REGISTERED LICENSED ENGINEERS. ALL RIGHTS RESERVED.</footer>
 
     <script>
-        // ระบบเลื่อนรูปภาพ
-        function moveSlide(sliderId, direction) {
-            const slider = document.getElementById(sliderId);
-            if (direction === 1) {
-                slider.style.transform = 'translateX(-50%)';
-            } else {
-                slider.style.transform = 'translateX(0)';
-            }
-        }
+        function moveSlide(sliderId, direction) { const slider = document.getElementById(sliderId); if (direction === 1) { slider.style.transform = 'translateX(-50%)'; } else { slider.style.transform = 'translateX(0)'; } }
 
-        // ระบบ 2 ภาษา
         const langData = {
             en: {
                 menu_services: "Services", menu_portfolio: "Projects", menu_contact: "Contact",
-                page_title: "OUR PROJECTS",
-                page_desc: "A collection of our architectural design and structural engineering excellence across Thailand.",
-                tag_1: "Architectural Design & Engineering",
-                p1_title: "2-Story House Design & Drawing",
-                tag_2: "Engineering & Documentation",
-                p2_title: "Residential House Design & Engineering",
-                label_detail: "Detail:",
-                label_loc: "Location:",
-                p1_detail: "3 Bedrooms, 4 Bathrooms",
-                p2_detail: "BOQ, Structural Calculations with Certification"
+                page_title: "OUR PROJECTS", page_desc: "A collection of our architectural design and structural engineering excellence across Thailand.",
+                tag_1: "Architectural Design & Engineering", p1_title: "2-Story House Design & Drawing",
+                tag_2: "Engineering & Documentation", p2_title: "Residential House Design & Engineering",
+                label_detail: "Detail:", label_loc: "Location:", p1_detail: "3 Bedrooms, 4 Bathrooms", p2_detail: "BOQ, Structural Calculations with Certification"
             },
             th: {
                 menu_services: "บริการ", menu_portfolio: "ผลงาน", menu_contact: "ติดต่อเรา",
-                page_title: "ผลงานของเรา",
-                page_desc: "รวบรวมผลงานการออกแบบสถาปัตยกรรมและวิศวกรรมโครงสร้างที่มุ่งเน้นคุณภาพและความพึงพอใจของผู้อยู่อาศัย",
-                tag_1: "ออกแบบสถาปัตยกรรมและวิศวกรรม",
-                p1_title: "ออกแบบ เขียนแบบบ้าน 2 ชั้น",
-                tag_2: "วิศวกรรมและเอกสารขออนุญาต",
-                p2_title: "ออกแบบเขียนแบบบ้านพักอาศัย 2 ชั้น",
-                label_detail: "รายละเอียด:",
-                label_loc: "สถานที่:",
-                p1_detail: "3 ห้องนอน 4 ห้องน้ำ",
-                p2_detail: "BOQ, รายการคำนวณโครงสร้างพร้อมเซ็นรับรอง"
+                page_title: "ผลงานของเรา", page_desc: "รวบรวมผลงานการออกแบบสถาปัตยกรรมและวิศวกรรมโครงสร้างที่มุ่งเน้นคุณภาพและความพึงพอใจของผู้อยู่อาศัย",
+                tag_1: "ออกแบบสถาปัตยกรรมและวิศวกรรม", p1_title: "ออกแบบ เขียนแบบบ้าน 2 ชั้น",
+                tag_2: "วิศวกรรมและเอกสารขออนุญาต", p2_title: "ออกแบบเขียนแบบบ้านพักอาศัย 2 ชั้น",
+                label_detail: "รายละเอียด:", label_loc: "สถานที่:", p1_detail: "3 ห้องนอน 4 ห้องน้ำ", p2_detail: "BOQ, รายการคำนวณโครงสร้างพร้อมเซ็นรับรอง"
             }
         };
 
         let currentLang = localStorage.getItem('site_lang') || 'en';
         function updateUI(lang) {
-            const btn = document.getElementById('langBtn');
-            const enTxt = document.getElementById('enTxt');
-            const thTxt = document.getElementById('thTxt');
-            
-            if(lang === 'th') {
-                btn.classList.add('th-active');
-                thTxt.classList.add('active-txt');
-                enTxt.classList.remove('active-txt');
-            } else {
-                btn.classList.remove('th-active');
-                enTxt.classList.add('active-txt');
-                thTxt.classList.remove('active-txt');
-            }
-
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if(langData[lang][key]) el.textContent = langData[lang][key];
-            });
+            const btn = document.getElementById('langBtn'); const enTxt = document.getElementById('enTxt'); const thTxt = document.getElementById('thTxt');
+            if(lang === 'th') { btn.classList.add('th-active'); thTxt.classList.add('active-txt'); enTxt.classList.remove('active-txt'); } 
+            else { btn.classList.remove('th-active'); enTxt.classList.add('active-txt'); thTxt.classList.remove('active-txt'); }
+            document.querySelectorAll('[data-key]').forEach(el => { const key = el.getAttribute('data-key'); if(langData[lang][key]) el.textContent = langData[lang][key]; });
         }
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'th' : 'en';
-            localStorage.setItem('site_lang', currentLang);
-            updateUI(currentLang);
-        }
-
+        function toggleLanguage() { currentLang = currentLang === 'en' ? 'th' : 'en'; localStorage.setItem('site_lang', currentLang); updateUI(currentLang); }
         document.addEventListener('DOMContentLoaded', () => updateUI(currentLang));
     </script>
 </body>
