@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - DE MIND STUDIO</title>
+    
+    <title>Contact Us - DE MIND STUDIO | รับออกแบบและก่อสร้างครบวงจร</title>
+    <meta name="description" content="ติดต่อ DE MIND STUDIO ทีมวิศวกรและสถาปนิกมืออาชีพ รับออกแบบบ้าน เขียนแบบ ก่อสร้าง และที่ปรึกษาวิศวกรรม พร้อมให้คำปรึกษาฟรี">
+    <meta name="keywords" content="รับเหมาก่อสร้าง, ออกแบบบ้าน, เขียนแบบ, วิศวกรโครงสร้าง, รับสร้างบ้าน, อุดรธานี, DE MIND STUDIO">
+    <meta name="author" content="DE MIND STUDIO">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Us - DE MIND STUDIO">
+    <meta property="og:description" content="ปรึกษาวิศวกรและสถาปนิกมืออาชีพ ออกแบบและก่อสร้างบ้านในฝันของคุณ">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
@@ -14,7 +23,7 @@
         
         header { background: rgba(255,255,255,0.98); height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         
-        /* --- LOGO UPDATE --- */
+        /* LOGO STYLE */
         .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .logo-box { border: 2px solid var(--primary); padding: 0 5px; font-size: 1.8rem; font-weight: 600; color: var(--primary); flex-shrink: 0; }
         .logo-text-group { display: flex; flex-direction: column; justify-content: center; line-height: 1; }
@@ -50,6 +59,7 @@
         .form-control:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(184, 149, 108, 0.1); }
         .btn-submit { width: 100%; background: var(--accent); color: white; padding: 15px; border: none; border-radius: 4px; font-family: 'Kanit'; font-weight: 600; font-size: 1rem; cursor: pointer; text-transform: uppercase; }
         .btn-submit:hover { background: var(--accent-hover); }
+        .btn-submit:disabled { background: #ccc; cursor: not-allowed; }
 
         .lang-toggle { display: flex; align-items: center; border: 1px solid var(--primary); padding: 4px; cursor: pointer; width: 74px; height: 34px; position: relative; background: white; }
         .lang-toggle span { width: 50%; text-align: center; font-size: 0.75rem; font-weight: 700; z-index: 2; color: var(--primary); }
@@ -62,7 +72,6 @@
         @media (max-width: 992px) {
             .contact-container { grid-template-columns: 1fr; padding: 60px 5%; }
             .contact-hero h1 { font-size: 2.2rem; }
-            /* Logo Mobile Fix */
             .logo-box { font-size: 1.4rem; border-width: 2px; }
             .brand-name { font-size: 1.3rem; }
             .mobile-tag { display: block; font-size: 0.6rem; color: var(--accent); letter-spacing: 1px; font-weight: 500; margin-top: 2px; }
@@ -111,21 +120,37 @@
         </div>
 
         <div class="contact-form">
-            <form id="contactForm">
-                <div class="form-group"><label data-key="f_name">Full Name</label><input type="text" class="form-control" placeholder="ชื่อ-นามสกุล"></div>
-                <div class="form-group"><label data-key="f_email">Email Address</label><input type="email" class="form-control" placeholder="example@mail.com"></div>
-                <div class="form-group"><label data-key="f_service">Interested Service</label>
-                    <select class="form-control"><option value="design" data-key="opt_1">ออกแบบและคำนวณโครงสร้าง</option><option value="construction" data-key="opt_2">รับเหมาก่อสร้าง</option><option value="consultant" data-key="opt_3">วิศวกรที่ปรึกษา</option></select>
+            <form name="submit-to-google-sheet">
+                <div class="form-group">
+                    <label data-key="f_name">Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="ชื่อ-นามสกุล" required>
                 </div>
-                <div class="form-group"><label data-key="f_message">Message</label><textarea class="form-control" rows="4" placeholder="รายละเอียดโครงการ..."></textarea></div>
+                <div class="form-group">
+                    <label data-key="f_email">Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="example@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label data-key="f_service">Interested Service</label>
+                    <select name="service" class="form-control">
+                        <option value="Structural Design" data-key="opt_1">ออกแบบและคำนวณโครงสร้าง</option>
+                        <option value="Construction" data-key="opt_2">รับเหมาก่อสร้าง</option>
+                        <option value="Consultant" data-key="opt_3">วิศวกรที่ปรึกษา</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label data-key="f_message">Message</label>
+                    <textarea name="message" class="form-control" rows="4" placeholder="รายละเอียดโครงการ..." required></textarea>
+                </div>
                 <button type="submit" class="btn-submit" data-key="btn_send">Send Message</button>
             </form>
+            <p id="msg-status" style="margin-top:10px; color: green; display: none;"></p>
         </div>
     </div>
 
     <footer><p>&copy; 2025 DE MIND STUDIO. Registered Licensed Engineers. All Rights Reserved.</p></footer>
 
     <script>
+        // --- 1. ภาษา (Language System) ---
         const langData = {
             en: {
                 menu_services: "Services", menu_portfolio: "Projects", menu_contact: "Contact",
@@ -135,7 +160,7 @@
                 label_phone: "Phone", label_email: "Email", label_line: "LINE ID",
                 f_name: "Full Name", f_email: "Email Address", f_service: "Interested Service", f_message: "Message",
                 opt_1: "Structural Design", opt_2: "Construction", opt_3: "Engineering Consultant",
-                btn_send: "Send Message"
+                btn_send: "Send Message", success_msg: "Message Sent Successfully! We will contact you back."
             },
             th: {
                 menu_services: "บริการ", menu_portfolio: "ผลงาน", menu_contact: "ติดต่อเรา",
@@ -145,7 +170,7 @@
                 label_phone: "เบอร์โทรศัพท์", label_email: "อีเมล", label_line: "ไอดีไลน์",
                 f_name: "ชื่อ-นามสกุล", f_email: "อีเมล", f_service: "บริการที่สนใจ", f_message: "ข้อความ",
                 opt_1: "ออกแบบและคำนวณโครงสร้าง", opt_2: "รับเหมาก่อสร้าง", opt_3: "วิศวกรที่ปรึกษา",
-                btn_send: "ส่งข้อความ"
+                btn_send: "ส่งข้อความ", success_msg: "ส่งข้อความเรียบร้อยแล้ว! เราจะรีบติดต่อกลับไป"
             }
         };
 
@@ -158,6 +183,47 @@
         }
         function toggleLanguage() { currentLang = currentLang === 'en' ? 'th' : 'en'; localStorage.setItem('site_lang', currentLang); updateUI(currentLang); }
         document.addEventListener('DOMContentLoaded', () => updateUI(currentLang));
+
+
+        // --- 2. ส่งข้อมูลไป Google Sheets (Script เชื่อมต่อ) ---
+        
+        // URL ที่คุณให้มา (ใส่ให้เรียบร้อยแล้ว)
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxrH3B5_8UkLeAHIordIz5MxyAhlaocxl_NfN5Xcvdr71_A-xAEK_37zgYRafMc86kJ/exec';
+
+        const form = document.forms['submit-to-google-sheet'];
+        const msgStatus = document.getElementById('msg-status');
+        const submitBtn = document.querySelector('.btn-submit');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // เปลี่ยนปุ่มเป็นกำลังส่ง
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = currentLang === 'en' ? 'Sending...' : 'กำลังส่ง...';
+            submitBtn.disabled = true;
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msgStatus.style.display = 'block';
+                    msgStatus.innerText = langData[currentLang].success_msg;
+                    msgStatus.style.color = 'green';
+                    
+                    form.reset(); // ล้างฟอร์ม
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                    
+                    // ซ่อนข้อความหลังจาก 5 วินาที
+                    setTimeout(() => { msgStatus.style.display = 'none'; }, 5000);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    msgStatus.style.display = 'block';
+                    msgStatus.innerText = "Error sending message. Please try again.";
+                    msgStatus.style.color = 'red';
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        });
     </script>
 </body>
 </html>
